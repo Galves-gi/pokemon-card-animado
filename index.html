@@ -1,110 +1,90 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carta Pokémon Rara</title>
-  <style>
-    body {
-      background: radial-gradient(circle at top, #0a0a0a, #000);
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: 'Inter', sans-serif;
-    }
 
-    .card-rara {
-      position: relative;
-      width: 300px;
-      height: 420px;
-      background: #111;
-      border-radius: 16px;
-      overflow: hidden;
-      z-index: 0;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
-    }
+  <!-- Links -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link rel="icon" href="./images/logo.png">
+  <link rel="stylesheet" href="./css/card_pokemon.css">
 
-    /* Gradiente animado da borda */
-    .card-rara::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      padding: 3px;
-      border-radius: 16px;
-      background: linear-gradient(
-        30deg,
-        #A8A77A,
-        #EE8130,
-        #6390F0,
-        #F7D02C,
-        #7AC74C,
-        #96D9D6,
-        #C22E28,
-        #A33EA1,
-        #E2BF65,
-        #A98FF3,
-        #F95587,
-        #A6B91A, 
-        #B6A136,
-        #735797,
-        #6F35FC,
-        #705746,
-        #B7B7CE,
-        #D685AD);
-      background-size: 400% 400%;
-      animation: bordaBrilhante 8s ease-in-out infinite;
-      -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      z-index: -1;
-    }
+  <!-- Main JS -->
+  <script defer src="./js/script.js"></script>
 
-    @keyframes bordaBrilhante {
-      0% {
-        background-position: 0% 50%;
-        filter: hue-rotate(0deg);
-      }
-      50% {
-        background-position: 100% 50%;
-        filter: hue-rotate(45deg);
-      }
-      100% {
-        background-position: 0% 50%;
-        filter: hue-rotate(0deg);
-      }
-    }
-
-    /* Conteúdo da carta */
-    .card-rara h2 {
-      font-weight: bold;
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-      color: #fff8cc;
-    }
-
-    .card-rara p {
-      font-size: 0.9rem;
-      color: #ccc;
-      margin: 0;
-    }
-  </style>
+  <title>Pokédex - Card Animado</title>
 </head>
-<body>
 
-  <div class="card-rara">
-    <h2>Pikachu ✨</h2>
-    <p>Tipo: Elétrico ⚡</p>
-    <p>Raridade: Lendária</p>
-  </div>
+<body>
+  <header>
+    <img src="/images/logo.png" alt="logo pokedex" id="logo">
+
+<!--     <nav>
+      <form action="" class="form">
+        <input type="search" name="buscar" id="buscar" class="input__pesquisar"
+          placeholder="Pesquisar pokémon por nome ou id...">
+      </form>
+
+      <button type="submit" class="btn-primario">Aleatório</button>
+    </nav> -->
+
+<!--     <button class="botao_menu">
+      <i class="bi bi-list "></i>
+    </button> -->
+
+  </header>
+
+  <!--         
+        
+
+       
+        <h1 class="pokemon__infor">
+          <span class="pokemon__id"></span> -
+          <span class="pokemon__nome"></span>
+        </h1> -->
+
+  <main>
+       <button class="botoes btn-prev"> <i class="bi bi-chevron-compact-left"></i></button>
+
+    <section class="card">
+       <article class="card-front">
+        <div class="card-front_corpo">
+
+<!--           <div class="card-front_nome-icon flexivel ">
+            <span class="card-front_faixa flexivel">
+              <img src="/images/icones/electric.png" alt="" class="pokemon__icone">
+
+              <h1 class="pokemon__nome">musaranho-da-areia</h1>
+            </span>
+
+            <h2><sub>HP</sub><sup class="pokemon__hp">120</sup></h2>
+          </div> -->
+          
+          
+          <img src="/images/Pokemon_n_encontrado.png" alt="pokemon" class="pokemon__imagem">
+
+          <div class="card-front_infor flexivel ">
+
+<!--             <span class="card-front_status flexivel">
+              <h3>Attack:<span class="pokemon__attack">100</span></h3>
+              <h3>Defesa:<span class="pokemon__defesa">100</span></h3>
+              <h3>Velocidade:<span class="pokemon__">100</span></h3>
+            </span> -->
+
+          </div>
+
+        </div>
+      </article>
+
+      <!-- parte de trás -->
+          <img src="/images/card-verso.png" alt="" srcset="" class="card-back"> 
+
+    </section>
+
+       <button class="botoes btn-next"><i class="bi bi-chevron-compact-right"></i></button>
+  </main>
 
 </body>
+
 </html>
