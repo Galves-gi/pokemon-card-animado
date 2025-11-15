@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Oxanium', cursive;
+}
+
+body {
+  background-color: black;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --amarelo: #ffcb05;
+  --vermelho: hsl(0, 94%, 46%);
+  --azul-escuro: #003a70;
+  --azul-claro: #3d7dca;
+}
+
+.flexivel {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+
+header {
+  width: 100%;
+  height: auto;
+  background-color: var(--azul-escuro);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  position: sticky;
+  top: 0;
+}
+
+#logo {
+  max-width: 100%;
+  width: 5em;
+}
+
+.botao_menu {
+  background-color: transparent;
+  border: none;
+  font-size: 3em;
+  color: var(--amarelo);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  max-width: 100%;
+
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+
+}
+
+#buscar {
+  width: auto;
+  padding: 3% 2%;
+  border: 3px solid var(--azul-escuro);
+  border-radius: 30px;
+
+  background-image: url('/images/Search.svg');
+  background-repeat: no-repeat;
+  background-position: left 10px center;
+  background-size: 16px 16px;
+  padding-left: 0.5em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.btn-primario {
+  width: auto;
+  padding: 1% 5%;
+  background-color: var(--vermelho);
+  color: black;
+  font-size: 1em;
+  border-radius: 30px;
+}
+
+main {
+  width: 100%;
+  height: 89dvh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.botoes {
+  background-color: transparent;
+  border: transparent;
+  width: 3em;
+  height: 100%;
+  color: var(--azul-escuro);
+  z-index: 3;
+  margin: 0;
+  padding: 0;
+}
+
+.botoes .bi {
+  font-size: 3em;
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  width: 100dvw;
+  max-width: 20em;
+  height: 30em;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card:hover {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+}
+
+.card-front {
+  border-radius: 30px;
+
+  /*   background: linear-gradient(
+  30deg,
+  #F5F6B3 0%,
+  #FEFF05 3%,
+  #E48A95 11%,
+  #F6F09C 13%,
+  #FAFB57 14%,
+  #F5F3A7 18%,
+  #73D156 24%,
+  #A6842D 27%,
+  #B4E27F 33%,
+  #C9AA42 37%,
+  #F7DE5D 50%,
+  #80DD47 60%,
+  #9FFEFB 67%,
+  #F7B425 75%,
+  #F9FA66 80%,
+  #C093A7 88%,
+  #FEFFF5 92%,
+  #FEFF05 97%); */
+  background: linear-gradient(30deg,
+      #A8A77A,
+      #EE8130,
+      #6390F0,
+      #F7D02C,
+      #7AC74C,
+      #96D9D6,
+      #C22E28,
+      #A33EA1,
+      #E2BF65,
+      #A98FF3,
+      #F95587,
+      #A6B91A,
+      #B6A136,
+      #735797,
+      #6F35FC,
+      #705746,
+      #B7B7CE,
+      #D685AD);
+  background-size: 400% 100%;
+  animation: moverGradiente 5s ease infinite;
+
+}
+
+/* Animação */
+@keyframes moverGradiente {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.card-front_corpo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 22px;
+  width: 92%;
+  height: 94%;
+  position: relative;
+  background-image: url(/images/img-fundo/fire.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.card-front_nome-icon {
+  width: 95%;
+  justify-content: space-between;
+  gap: 0.1em;
+  position: absolute;
+  top: -1px;
+  left: 0;
+}
+
+.card-front_faixa {
+  gap: 0.2em;
+  width: 100%;
+  background-color: var(--amarelo);
+  border-radius: 80px 0 147px 0;
+}
+
+.pokemon__nome {
+  font-size: clamp(8px, 4vw, 18px);
+}
+
+.pokemon__icone {
+  margin: 2% 0 2% 4%;
+  width: 1.8dvw;
+}
+
+.card-front_nome-icon>h2>sub {
+  font-size: clamp(4px, 3vw, 12px);
+}
+
+.card-front_nome-icon>h2>sup {
+  font-size: clamp(4px, 3vw, 18px);
+}
+
+.pokemon__imagem {
+  width: 15em;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  z-index: 2;
+}
+
+@media (min-width: 650px) {
+
+  .botoes {
+    width: 10em;
+  }
+  .botoes .bi {
+    font-size: 5em;
+  }
+}

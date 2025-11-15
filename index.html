@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carta Pokémon Rara</title>
+  <style>
+    body {
+      background: radial-gradient(circle at top, #0a0a0a, #000);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .card-rara {
+      position: relative;
+      width: 300px;
+      height: 420px;
+      background: #111;
+      border-radius: 16px;
+      overflow: hidden;
+      z-index: 0;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+    }
+
+    /* Gradiente animado da borda */
+    .card-rara::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 3px;
+      border-radius: 16px;
+      background: linear-gradient(
+        30deg,
+        #A8A77A,
+        #EE8130,
+        #6390F0,
+        #F7D02C,
+        #7AC74C,
+        #96D9D6,
+        #C22E28,
+        #A33EA1,
+        #E2BF65,
+        #A98FF3,
+        #F95587,
+        #A6B91A, 
+        #B6A136,
+        #735797,
+        #6F35FC,
+        #705746,
+        #B7B7CE,
+        #D685AD);
+      background-size: 400% 400%;
+      animation: bordaBrilhante 8s ease-in-out infinite;
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      z-index: -1;
+    }
+
+    @keyframes bordaBrilhante {
+      0% {
+        background-position: 0% 50%;
+        filter: hue-rotate(0deg);
+      }
+      50% {
+        background-position: 100% 50%;
+        filter: hue-rotate(45deg);
+      }
+      100% {
+        background-position: 0% 50%;
+        filter: hue-rotate(0deg);
+      }
+    }
+
+    /* Conteúdo da carta */
+    .card-rara h2 {
+      font-weight: bold;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #fff8cc;
+    }
+
+    .card-rara p {
+      font-size: 0.9rem;
+      color: #ccc;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card-rara">
+    <h2>Pikachu ✨</h2>
+    <p>Tipo: Elétrico ⚡</p>
+    <p>Raridade: Lendária</p>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Links -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link rel="icon" href="./images/logo.png">
+  <link rel="stylesheet" href="./css/card_pokemon.css">
+
+  <!-- Main JS -->
+  <script defer src="./js/script.js"></script>
+
+  <title>Pokédex - Card Animado</title>
+</head>
+
+<body>
+  <header>
+    <img src="/images/logo.png" alt="logo pokedex" id="logo">
+
+<!--     <nav>
+      <form action="" class="form">
+        <input type="search" name="buscar" id="buscar" class="input__pesquisar"
+          placeholder="Pesquisar pokémon por nome ou id...">
+      </form>
+
+      <button type="submit" class="btn-primario">Aleatório</button>
+    </nav> -->
+
+<!--     <button class="botao_menu">
+      <i class="bi bi-list "></i>
+    </button> -->
+
+  </header>
+
+  <!--         
+        
+
+       
+        <h1 class="pokemon__infor">
+          <span class="pokemon__id"></span> -
+          <span class="pokemon__nome"></span>
+        </h1> -->
+
+  <main>
+       <button class="botoes btn-prev"> <i class="bi bi-chevron-compact-left"></i></button>
+
+    <section class="card">
+       <article class="card-front">
+        <div class="card-front_corpo">
+
+          <div class="card-front_nome-icon flexivel ">
+            <span class="card-front_faixa flexivel">
+              <img src="/images/icones/electric.png" alt="" class="pokemon__icone">
+
+              <h1 class="pokemon__nome">musaranho-da-areia</h1>
+            </span>
+
+            <h2><sub>HP</sub><sup class="pokemon__hp">120</sup></h2>
+          </div>
+          
+          <img src="/images/Pokemon_n_encontrado.png" alt="pokemon" class="pokemon__imagem">
+
+          <div class="card-front_infor flexivel ">
+
+            <span class="card-front_status flexivel">
+              <h3>Attack:<span class="pokemon__attack">100</span></h3>
+              <h3>Defesa:<span class="pokemon__defesa">100</span></h3>
+              <h3>Velocidade:<span class="pokemon__">100</span></h3>
+            </span>
+
+          </div>
+
+        </div>
+      </article>
+
+      <!-- parte de trás -->
+          <img src="/images/card-verso.png" alt="" srcset="" class="card-back"> 
+
+    </section>
+
+       <button class="botoes btn-next"><i class="bi bi-chevron-compact-right"></i></button>
+  </main>
+
+</body>
+
+</html>
