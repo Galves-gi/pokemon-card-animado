@@ -1,27 +1,43 @@
-/* 
-Anotações:
-- Tudo que leva tempo para retornar é assicrona. Então, usar async e await.
-- 
-*/
-
-const pokemonImagem = document.querySelector('.pokemon__imagem')
+/* const pokemonImagem = document.querySelector('.pokemon__imagem')
 const pokemonNome = document.querySelector('.pokemon__nome')
 const pokemonID = document.querySelector('.pokemon__id')
 
 const formulario = document.querySelector('.form')
-const busca = document.querySelector('.input__pesquisar')
+const busca = document.querySelector('.input__pesquisar') 
 
-let maxPokemon = 1026
+let maxPokemon = 1026*/
+
+const botaoMenu = document.querySelector(".botao_menu")
+const iconeMenu = document.querySelector(".icone_menu")
+const headerNav = document.querySelector(".header_nav")
+
+botaoMenu.addEventListener("click", function(botao){/*  */
+    if (iconeMenu.classList.contains("bi-list")) { /* contains(): Verifica se uma classe existe, retornando true ou false.
+ */
+        iconeMenu.classList.remove("bi-list")
+        iconeMenu.classList.add("bi-x")
+        headerNav.classList.add("show")
+    }else{
+        iconeMenu.classList.remove("bi-x")
+        iconeMenu.classList.toggle("bi-list")
+        headerNav.classList.remove("show")
+    }
+
+})
+
 
 const chamarApi = async (pokemon) => {
     const apiResposta = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
 
     const dadosApi = await apiResposta.json()
+    console.log(dadosApi);
+    
 
     return dadosApi
     
 }
-
+chamarApi(5)
+/* 
 const exibirPokemon = async (pokemon=94) =>{
 
     const dadosApi = await chamarApi(pokemon)

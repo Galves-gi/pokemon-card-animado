@@ -18,20 +18,22 @@
 
 <body>
   <header>
-    <img src="/images/logo.png" alt="logo pokedex" id="logo">
+    <div class="header--mobile">
+      <img src="/images/logo.png" alt="logo pokedex" id="logo">
+      <button class="botao_menu">
+        <i class="bi bi-list icone_menu"></i>
+      </button>
+    </div>
 
-<!--     <nav>
+
+    <nav class="header_nav">
       <form action="" class="form">
         <input type="search" name="buscar" id="buscar" class="input__pesquisar"
           placeholder="Pesquisar pokémon por nome ou id...">
       </form>
 
       <button type="submit" class="btn-primario">Aleatório</button>
-    </nav> -->
-
-<!--     <button class="botao_menu">
-      <i class="bi bi-list "></i>
-    </button> -->
+    </nav>
 
   </header>
 
@@ -45,46 +47,68 @@
         </h1> -->
 
   <main>
-       <button class="botoes btn-prev"> <i class="bi bi-chevron-compact-left"></i></button>
+    <button class="botoes btn-prev"> <i class="bi bi-chevron-compact-left"></i></button>
 
     <section class="card">
-       <article class="card-front">
+      <article class="card-front">
         <div class="card-front_corpo">
 
-<!--           <div class="card-front_nome-icon flexivel ">
+          <div class="card-front_nome-icon flexivel ">
             <span class="card-front_faixa flexivel">
-              <img src="/images/icones/electric.png" alt="" class="pokemon__icone">
+              <img src="/images/icones/icone-padrao.png" alt="" class="pokemon__icone">
 
-              <h1 class="pokemon__nome">musaranho-da-areia</h1>
+              <h1 class="pokemon__nome"></h1>
             </span>
 
-            <h2><sub>HP</sub><sup class="pokemon__hp">120</sup></h2>
-          </div> -->
-          
-          
-          <img src="/images/Pokemon_n_encontrado.png" alt="pokemon" class="pokemon__imagem">
+            <h2><sub>HP</sub><sup class="pokemon__hp">00</sup></h2>
+          </div>
 
-          <div class="card-front_infor flexivel ">
 
-<!--             <span class="card-front_status flexivel">
-              <h3>Attack:<span class="pokemon__attack">100</span></h3>
-              <h3>Defesa:<span class="pokemon__defesa">100</span></h3>
-              <h3>Velocidade:<span class="pokemon__">100</span></h3>
-            </span> -->
+          <img src="/images/logo.png" alt="pokemon" class="pokemon__imagem">
 
+          <div>
+            <!-- <div class="card-front_infor-tipo">
+              <h3>Typo:</h3>
+              <p class="pokemon__tipo">Elétrico, Fogo</p>
+            </div> -->
+
+            <div class="card-front_infor flexivel ">
+
+              <div class="teste">
+                <h3 class="pokemon__ataque card-front_paralelogramo">Attack</h3>
+                <p class="pokemon__ataque-dano card-front_paralelogramo-valor">+00</p>
+              </div>
+
+              <div class="teste">
+                <h3 class="pokemon__defesa card-front_paralelogramo">Defense</h3>
+                <p class="pokemon__defesa-valor card-front_paralelogramo-valor">+00</p>
+              </div>
+
+              <div class="teste">
+                <h3 class="pokemon__velocidade card-front_paralelogramo">Speed</h3>
+                <p class="pokemon__velocidade-valor card-front_paralelogramo-valor">+00</p>
+              </div>
+
+            </div>
+
+            <!-- <div>
+              <p class="pokemon__descricao card-front_descricao">When this Pokémon has 1/3 or less of its HP remaining, its fire-type moves
+                inflict 1.5× as much regular damage.</p>
+            </div> -->
           </div>
 
         </div>
       </article>
 
       <!-- parte de trás -->
-          <img src="/images/card-verso.png" alt="" srcset="" class="card-back"> 
+      <img src="/images/card-verso.png" alt="" srcset="" class="card-back">
 
     </section>
 
-       <button class="botoes btn-next"><i class="bi bi-chevron-compact-right"></i></button>
+    <button class="botoes btn-next"><i class="bi bi-chevron-compact-right"></i></button>
   </main>
 
+  <script src="/js/script.js"></script>
 </body>
 
 </html>
