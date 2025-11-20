@@ -1,31 +1,60 @@
-/* const pokemonImagem = document.querySelector('.pokemon__imagem')
+const pokemonImagem = document.querySelector('.pokemon__imagem')
 const pokemonNome = document.querySelector('.pokemon__nome')
 const pokemonID = document.querySelector('.pokemon__id')
 
 const formulario = document.querySelector('.form')
 const busca = document.querySelector('.input__pesquisar') 
 
-let maxPokemon = 1026*/
+const pokemonHp = document.querySelector('.pokemon__hp')
+const pokemonAtaque = document.querySelector('.pokemon__ataque-dano')
+const pokemonDefesa = document.querySelector('.pokemon__defesa-valor')
+const pokemonVelocidade = document.querySelector('.pokemon__velocidade-valor')
 
+
+let maxPokemon = 1026
+
+/* menu */
 const botaoMenu = document.querySelector(".botao_menu")
 const iconeMenu = document.querySelector(".icone_menu")
 const headerNav = document.querySelector(".header_nav")
 
-botaoMenu.addEventListener("click", function(botao){/*  */
-    if (iconeMenu.classList.contains("bi-list")) { /* contains(): Verifica se uma classe existe, retornando true ou false.
- */
-        iconeMenu.classList.remove("bi-list")
-        iconeMenu.classList.add("bi-x")
+botaoMenu.addEventListener("click", ()=>{
+    if (iconeMenu.classList.contains("icone-X")) { // contains(): Verifica se uma classe existe, retornando true ou false.
+
+        iconeMenu.classList.remove("icone-X")
+        iconeMenu.classList.add("anima-menu")
         headerNav.classList.add("show")
     }else{
-        iconeMenu.classList.remove("bi-x")
-        iconeMenu.classList.toggle("bi-list")
+        iconeMenu.classList.remove("anima-menu")
+        iconeMenu.classList.add("icone-X")
         headerNav.classList.remove("show")
     }
 
+}) 
+/* menu */
+
+
+/* botoões de mudar */
+const botoesMudar = document.querySelectorAll(".botoes_mudar")
+const carregamento = document.querySelector(".card")
+
+botoesMudar.forEach(cada_botao =>{
+
+    cada_botao.addEventListener("click", ()=>{
+       
+             if (!carregamento.classList.contains("girarCard")) {
+               carregamento.classList.add("girarCard")
+            } else{
+                 carregamento.classList.remove("girarCard")
+            }
+    })
+
 })
 
+/* botoões de mudar */
 
+
+/* chamar a api */
 const chamarApi = async (pokemon) => {
     const apiResposta = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
 
@@ -36,8 +65,7 @@ const chamarApi = async (pokemon) => {
     return dadosApi
     
 }
-chamarApi(5)
-/* 
+
 const exibirPokemon = async (pokemon=94) =>{
 
     const dadosApi = await chamarApi(pokemon)

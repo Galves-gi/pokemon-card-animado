@@ -14,6 +14,7 @@ body {
   box-sizing: border-box;
 }
 
+/* cores */
 :root {
   --amarelo: #ffcb05;
   --vermelho: hsl(0, 94%, 46%);
@@ -21,19 +22,21 @@ body {
   --azul-claro: #3d7dca;
 }
 
+/* reutilização de css */
 .flexivel {
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 
+/* cabeçalho */
 header {
   display: flex;
   flex-direction: column;
+  gap: 0.5em;
   height: auto;
   width: 100%;
   margin: 0;
-  padding: 0;
   background-color: var(--azul-escuro);
   position: sticky;
   top: 0;
@@ -41,6 +44,7 @@ header {
 
 }
 
+/* logo e botao hamburger */
 .header--mobile {
   width: auto;
   height: auto;
@@ -52,88 +56,84 @@ header {
 }
 
 #logo {
-  max-width: 100%;
   width: 20%;
 }
 
 .botao_menu {
-  background-color: transparent;
-  border: none;
   font-size: 3em;
-  color: var(--amarelo);
+}
+
+.icone_menu {
+  width: 15vw;
+  height: 8vh;
+  padding: 0;
+  margin: 0;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0;
-  padding: 0;
-}
-
-/* Botão de menu (mobile) */
-.botao_menu {
   background-color: transparent;
   border: none;
-  font-size: 3em;
-  color: var(--amarelo);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.icone_menu>.bar {
+  width: 0.8em;
+  height: 0.1em;
+  border-radius: 100px;
+  background-color: var(--amarelo);
   margin: 0;
   padding: 0;
+  position: absolute;
+  right: 20%;
+  transition: all 0.4s ease;
 }
 
-/* Smooth icon transitions: rotate on active and change color/opacity. */
-.bi {
-  transition: transform 0.45s cubic-bezier(.2, .9, .3, 1), color 0.25s ease, opacity 0.25s ease;
-  will-change: transform, opacity;
+/* icone menu X */
+.anima-menu>#bar1 {
+  transform: translateY(0em) rotate(45deg);
 }
 
-.bi:active {
-  transform: rotate(60deg) scale(0.98);
-  color: var(--amarelo);
-  opacity: 0.95;
+.anima-menu>#bar3 {
+  transform: translateY(0em) rotate(-45deg);
 }
 
-@keyframes rotacao {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  50% {
-    transform: rotate(20deg);
-    background-color: transparent;
-  }
-
-  100% {
-    transform: rotate(60deg);
-  }
+.anima-menu>#bar2 {
+  display: none;
 }
 
-/* Collapsible nav: collapsed by default so we can animate via max-height/opacity.
-   Toggle `nav.show` from JS to open. */
+/* icone menu padrao*/
+.icone-X>#bar2 {
+  transform: translateY(0em)
+}
+
+.icone-X>#bar1 {
+  transform: translateY(0.2em)
+}
+
+.icone-X>#bar3 {
+  transform: translateY(-0.2em)
+}
+
+/* formulario */
 nav {
   background-color: var(--azul-escuro);
-
   max-width: 100%;
   height: auto;
   max-height: 0;
-
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-
-
-
-  padding: 0 4%;
-
+  padding: 0;
+  margin: 0;
   overflow: hidden;
   transition: max-height 0.45s ease, opacity 0.45s ease, transform 0.25s ease, padding 0.35s ease;
   transform-origin: top;
   transform: translateY(-10px);
 }
 
+/* animação para mobile */
 nav.show {
   max-height: 480px;
   /* ajustar conforme tamanho do menu */
@@ -142,45 +142,70 @@ nav.show {
   transform: translateY(0);
 }
 
-/* busca */
+/* input de busca */
 #buscar {
-  width: 60vw;
+  width: clamp(60vw, 80vw, 100%);
   padding: 3% 1%;
   border: 3px solid var(--azul-escuro);
   border-radius: 30px;
+  /* 
   background-image: url('/images/Search.svg');
   background-repeat: no-repeat;
   background-position: left 10px center;
-  background-size: 16px 16px;
-  padding-left: 2em;
+  background-size: 20px 20px;
+  padding-left: 0em;
   padding-top: 0.5em;
-  padding-bottom: 0.5em;
+  padding-bottom: 0.5em; */
   font-size: 1em;
 }
 
-.btn-primario {
-  width: auto;
-  padding: 0.5em 1.5em;
+/* botao aleatorio */
+.btn-aleatorio {
+  display: inline-block;
+  padding: 0.6em 1.25em;
   border: none;
-  background-color: var(--vermelho);
-  color: black;
-  font-size: 1em;
-  border-radius: 30px;
+  background: linear-gradient(160deg, #ff6b6b 0%, var(--vermelho) 60%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.30), 0 3px 6px rgba(0, 0, 0, 0.12), inset 0 2px 6px rgba(255, 255, 255, 0.06);
+  position: relative;
+  overflow: hidden;
 }
 
+.btn-aleatorio:hover {
+  background: linear-gradient(160deg, #ff7b7b 0%, #ff3b3b 60%);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.36), 0 6px 12px rgba(0, 0, 0, 0.16), inset 0 3px 8px rgba(255, 255, 255, 0.06);
+}
+
+.btn-aleatorio:active {
+  background: linear-gradient(160deg, #ff6b6b 0%, var(--vermelho) 60%);
+  transform: translateY(2px) scale(.995);
+  box-shadow: 
+    inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
+    inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+}
+
+
+/* conteudo */
 main {
   width: 100%;
-  height: 89dvh;
+  height: auto;
+  max-height: 100vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0;
+  margin: 2em 0;
   padding: 0;
   perspective: 1000px;
   cursor: pointer;
 }
 
-.botoes {
+/* setas laterais */
+.botoes_mudar {
   background-color: transparent;
   border: transparent;
   width: 3em;
@@ -191,28 +216,34 @@ main {
   padding: 0;
 }
 
-.botoes>.bi {
+.botoes_mudar>.bi {
   font-size: 3em;
   margin: 0;
   padding: 0;
 }
 
+/* card */
 .card {
   width: 100dvw;
   max-width: 20em;
   height: 30em;
   transition: transform 0.6s;
   transform-style: preserve-3d;
-  /* animation: girarCard 2s ease-in-out infinite; */
+
 }
 
-/* .card:hover {
-  transform: rotateY(180deg);
-} */
-/* Animação */
+/* animação do card*/
+.card.girarCard {
+  animation: girarCard 2s ease 3s;
+}
+
 @keyframes girarCard {
-  0% {
+
+  /*   0% {
     transform: rotateY(0deg);
+  } */
+  0% {
+    transform: rotateY(100deg);
   }
 
   50% {
@@ -224,6 +255,7 @@ main {
   }
 }
 
+/* definição dos dois lados do card */
 .card-front,
 .card-back {
   position: absolute;
@@ -237,29 +269,9 @@ main {
 
 }
 
+/* card front - informações do pokemon */
 .card-front {
   border-radius: 10px;
-
-  /*   background: linear-gradient(
-  30deg,
-  #F5F6B3 0%,
-  #FEFF05 3%,
-  #E48A95 11%,
-  #F6F09C 13%,
-  #FAFB57 14%,
-  #F5F3A7 18%,
-  #73D156 24%,
-  #A6842D 27%,
-  #B4E27F 33%,
-  #C9AA42 37%,
-  #F7DE5D 50%,
-  #80DD47 60%,
-  #9FFEFB 67%,
-  #F7B425 75%,
-  #F9FA66 80%,
-  #C093A7 88%,
-  #FEFFF5 92%,
-  #FEFF05 97%); */
   background: linear-gradient(30deg,
       #A8A77A,
       #EE8130,
@@ -299,21 +311,23 @@ main {
   }
 }
 
+/* conteudo do card front  */
 .card-front_corpo {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   border-radius: 5px;
   width: 92%;
   height: 94%;
   position: relative;
-  background-color: var(--amarelo);
+  background-color: purple;
   /* background-image: url(/images/img-fundo/fire.png); */
   background-position: center center;
   background-repeat: no-repeat;
 }
 
+/* faixa de nome, icone e hp */
 .card-front_nome-icon {
   max-width: 100%;
   width: 20em;
@@ -353,21 +367,26 @@ main {
   padding: 0 0.2em;
 }
 
+/* imagem do pokemon */
 .pokemon__imagem {
-  width: 20em;
+  transform: translateY(20%);
+  max-width: 100%;
+  width:clmap(10em, 20vw, 15em);
 }
 
+/* informações do pokemon */
 .card-front_infor {
-  width: 100%;
+  width: 90%;
   height: auto;
-  justify-content: space-around;
+  display: flex;
+  justify-content: center;
   align-items: center;
   gap: 1em;
-  flex-wrap: wrap;
-  margin-top: -1em;
+  margin-top:0.5em;
+  margin-bottom: 2em;
 }
 
-.teste {
+.container-paralelogramo {
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -375,6 +394,7 @@ main {
   width: 5em;
 }
 
+/* paralelogramo (os poderes do pokemon)*/
 .card-front_paralelogramo {
   display: inline-block;
   width: 100%;
@@ -395,6 +415,7 @@ main {
   background: black;
 }
 
+/* descrição do pokemon */
 .card-front_descricao {
   max-width: 85%;
   min-height: 2em;
@@ -406,6 +427,7 @@ main {
 
 }
 
+/* 
 .card-front_descricao:after {
   content: "";
   position: absolute;
@@ -428,29 +450,26 @@ main {
   border-left: 20px solid red;
   border-top: 20px solid transparent;
   border-bottom: 20px solid transparent;
-}
+} */
 
 
-.pokemon__descricao {
+/* .pokemon__descricao {
   font-size: clamp(0.6em, 3vw, 14px);
   color: #000;
   text-align: center;
 }
+ */
 
-
-
-
-
-
-
-
-
+/* card back - imagem */
 .card-back {
   transform: rotateY(180deg);
   z-index: 2;
 }
 
+
 @media (min-width: 650px) {
+
+  /* cabeçalho */
   header {
     flex-direction: row;
     justify-content: space-evenly;
@@ -463,6 +482,14 @@ main {
     width: 10%;
   }
 
+  #logo {
+    width: clamp(7em, 10vw, 12em);
+  }
+
+  .botao_menu {
+    display: none;
+  }
+
   nav {
     max-width: 100%;
     display: flex;
@@ -470,47 +497,34 @@ main {
     opacity: 1;
     transform: none;
     justify-content: end;
-    gap: 1em;
+    gap: 0.5em;
     margin: 0;
     padding: 0;
   }
 
-
   #buscar {
-    width: 45vw;
-    padding-left: 2em;
-    padding-top: 1.5%;
-    padding-bottom: 1.5%;
-    font-size: 1em;
-  }
-
-  .btn-primario {
-    font-size: 0.8em;
-  }
-
-  #logo {
     width: 100%;
+    min-width: 40vw;
+    padding: 0.5em 1em;
+    font-size: clamp(0.8em, 1.5vw, 1em);
   }
 
-  .botao_menu {
-    display: none;
+  .btn-aleatorio {
+    padding: 0.5em 1.2em;
+    font-size: clamp(0.8em, 1.5vw, 1em);
   }
 
-
-
-
-
-  .botoes {
-    width: 35em;
+  /* conteudo */
+  .botoes_mudar {
+    width: clamp(25em, 30vw, 35em);
   }
 
-  .botoes .bi {
+  .botoes_mudar > .bi {
     font-size: 5em;
   }
 
   /* card front */
   .pokemon__icone {
-
     width: clamp(2em, 2vw, 4em);
   }
 }
