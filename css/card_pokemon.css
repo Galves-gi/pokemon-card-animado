@@ -145,18 +145,16 @@ nav.show {
 /* input de busca */
 #buscar {
   width: clamp(60vw, 80vw, 100%);
-  padding: 3% 1%;
   border: 3px solid var(--azul-escuro);
   border-radius: 30px;
-  /* 
+
   background-image: url('/images/Search.svg');
   background-repeat: no-repeat;
-  background-position: left 10px center;
-  background-size: 20px 20px;
-  padding-left: 0em;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em; */
-  font-size: 1em;
+  background-position: left 5px center;
+  background-size: clamp(20px, 4vw, 23px);
+  padding: 3.3%;
+  padding-left: clamp(2em, 4vw, 3em);
+  font-size: clamp(0.8em, 3vw, 18px);
 }
 
 /* botao aleatorio */
@@ -184,21 +182,46 @@ nav.show {
 .btn-aleatorio:active {
   background: linear-gradient(160deg, #ff6b6b 0%, var(--vermelho) 60%);
   transform: translateY(2px) scale(.995);
-  box-shadow: 
+  box-shadow:
     inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
     inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
 }
 
+/* aviso */
+.aviso {
+  width: 15em;
+  text-align: center;
+  padding: clamp(0.3em, 2vw, 0.5em);
+  background-color: var(--azul-escuro);
+  color: var(--amarelo);
+  backdrop-filter: blur(10px);
+  border-radius: 20px 0 0 20px;
+  z-index: 100;
+  position: fixed;
+  bottom: 3.5em;
+  right: 0%;
+  font-size: clamp(1em, 2vw, 1.2em);
+  display: none;
+
+}
 
 /* conteudo */
 main {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
   width: 100%;
   height: auto;
   max-height: 100vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 2em 0;
+  margin: 3.5em 0;
   padding: 0;
   perspective: 1000px;
   cursor: pointer;
@@ -214,12 +237,18 @@ main {
   z-index: 3;
   margin: 0;
   padding: 0;
+
 }
 
 .botoes_mudar>.bi {
   font-size: 3em;
   margin: 0;
   padding: 0;
+  cursor: pointer;
+}
+
+.botoes_mudar>.bi:hover {
+  color: var(--amarelo);
 }
 
 /* card */
@@ -234,20 +263,21 @@ main {
 
 /* animação do card*/
 .card.girarCard {
-  animation: girarCard 2s ease 3s;
+  animation: girarCard 2s ease infinite;
 }
 
 @keyframes girarCard {
 
-  /*   0% {
-    transform: rotateY(0deg);
-  } */
   0% {
-    transform: rotateY(100deg);
+    transform: rotateY(0deg);
   }
 
-  50% {
+  25% {
     transform: rotateY(180deg);
+  }
+
+  75% {
+    transform: rotateY(190deg);
   }
 
   100% {
@@ -266,7 +296,6 @@ main {
   align-items: center;
   justify-content: center;
   box-shadow: 0 0 50px rgba(255, 255, 255, 0.2);
-
 }
 
 /* card front - informações do pokemon */
@@ -317,15 +346,21 @@ main {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
   border-radius: 5px;
+
   width: 92%;
   height: 94%;
+
   position: relative;
-  background-color: purple;
-  /* background-image: url(/images/img-fundo/fire.png); */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)) url("/images/img-fundo/padrao.jpg");
+  background: rgba(112, 110, 110, 0.55);
+  background-blend-mode: darken;
   background-position: center center;
   background-repeat: no-repeat;
+  background-size: cover;
 }
+
 
 /* faixa de nome, icone e hp */
 .card-front_nome-icon {
@@ -340,6 +375,9 @@ main {
 }
 
 .card-front_faixa {
+  display: flex;
+  justify-content: start;
+  align-items: center;
   gap: 0.2em;
   width: 80%;
   background-color: black;
@@ -354,24 +392,38 @@ main {
 }
 
 .pokemon__icone {
-
   width: clamp(1.5em, 4vw, 3em);
 }
 
 .card-front_nome-icon>h2>sub {
   font-size: clamp(0.6em, 3vw, 12px);
+  color: white;
+  text-shadow:
+    -1px -1px 0 black,
+    1px -1px 0 black,
+    -1px 1px 0 black,
+    1px 1px 0 black;
 }
 
 .card-front_nome-icon>h2>sup {
   font-size: clamp(0.8em, 3vw, 18px);
   padding: 0 0.2em;
+  color: white;
+
+  text-shadow:
+    -1px -1px 0 black,
+    1px -1px 0 black,
+    -1px 1px 0 black,
+    1px 1px 0 black;
 }
 
 /* imagem do pokemon */
 .pokemon__imagem {
   transform: translateY(20%);
   max-width: 100%;
-  width:clmap(10em, 20vw, 15em);
+  width: clmap(10em, 20vw, 15em);
+  filter:
+    drop-shadow(0 0 6px rgba(0, 0, 0, 0.35)) drop-shadow(0 4px 10px rgba(0, 0, 0, 0.25));
 }
 
 /* informações do pokemon */
@@ -382,7 +434,7 @@ main {
   justify-content: center;
   align-items: center;
   gap: 1em;
-  margin-top:0.5em;
+  margin-top: 0.5em;
   margin-bottom: 2em;
 }
 
@@ -426,39 +478,6 @@ main {
   align-items: center;
 
 }
-
-/* 
-.card-front_descricao:after {
-  content: "";
-  position: absolute;
-  left: -20px;
-  bottom: 0;
-  width: 0;
-  height: 0;
-  border-right: 20px solid red;
-  border-top: 20px solid transparent;
-  border-bottom: 20px solid transparent;
-}
-
-.card-front_descricao:before {
-  content: "";
-  position: absolute;
-  right: -20px;
-  bottom: 0;
-  width: 0;
-  height: 0;
-  border-left: 20px solid red;
-  border-top: 20px solid transparent;
-  border-bottom: 20px solid transparent;
-} */
-
-
-/* .pokemon__descricao {
-  font-size: clamp(0.6em, 3vw, 14px);
-  color: #000;
-  text-align: center;
-}
- */
 
 /* card back - imagem */
 .card-back {
@@ -506,6 +525,7 @@ main {
     width: 100%;
     min-width: 40vw;
     padding: 0.5em 1em;
+    padding-left: clamp(2.2em, 2vw, 2em);
     font-size: clamp(0.8em, 1.5vw, 1em);
   }
 
@@ -519,7 +539,7 @@ main {
     width: clamp(25em, 30vw, 35em);
   }
 
-  .botoes_mudar > .bi {
+  .botoes_mudar>.bi {
     font-size: 5em;
   }
 

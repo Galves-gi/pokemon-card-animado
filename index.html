@@ -32,8 +32,7 @@
     <nav class="header_nav">
 
       <form action="" class="form">
-        <input type="search" name="buscar" id="buscar" class="input__pesquisar"
-          placeholder="Pesquisar pokémon por nome ou id...">
+        <input type="search" name="buscar" id="buscar" class="input__pesquisar" placeholder="Pesquisar pokémon...">
       </form>
 
       <button type="submit" class="btn-aleatorio">Aleatório</button>
@@ -41,29 +40,35 @@
 
   </header>
 
+  <p class="aviso">Conecta na Internet</p>
+
   <main>
-    <button class="botoes_mudar btn-prev"> <i class="bi bi-chevron-compact-left"></i></button>
 
-    <section class="card">
-      <!-- parte da frente -->
-      <article class="card-front">
-        <div class="card-front_corpo">
+    <div class="container">
+      <button class="botoes_mudar"> <i class="bi bi-chevron-compact-left btn-voltar"></i></button>
 
-          <div class="card-front_nome-icon flexivel ">
-            <!-- icone e nome -->
-            <span class="card-front_faixa flexivel">
-              <img src="/images/icones/icone-padrao.png" alt="" class="pokemon__icone">
+      <section class="card">
+        <!-- parte da frente -->
+        <article class="card-front">
+          <div class="card-front_corpo">
 
-              <h1 class="pokemon__nome"></h1>
-            </span>
-            <!-- nivel HP -->
-            <h2><sub>HP</sub><sup class="pokemon__hp">00</sup></h2>
-          </div>
+            <div class="card-front_nome-icon flexivel ">
+              <!-- icone e nome -->
+              <span class="card-front_faixa">
+                <span class="flexivel icones">
+                  <!-- imgs dos icones -->
+                </span>
 
-          <!-- imgagem pokemon -->
-          <img src="/images/logo.png" alt="pokemon" class="pokemon__imagem">
+                <h1 class="pokemon__nome"></h1>
+              </span>
+              <!-- nivel HP -->
+              <h2><sub>HP</sub><sup class="pokemon__hp">00</sup></h2>
+            </div>
 
-          <!-- <div>
+            <!-- imgagem pokemon -->
+            <img src="/images/icones/icone-padrao.png" alt="pokemon" class="pokemon__imagem">
+
+            <!-- <div>
             <div class="card-front_infor-tipo">
               <h3>Typo:</h3>
               <p class="pokemon__tipo">Elétrico, Fogo</p>
@@ -94,15 +99,16 @@
             </div>
           </div> -->
 
-        </div>
-      </article>
+          </div>
+        </article>
 
-      <!-- parte de trás -->
-      <img src="/images/card-verso.png" alt="" srcset="" class="card-back">
+        <!-- parte de trás -->
+        <img src="/images/card-verso.png" alt="" srcset="" class="card-back">
 
-    </section>
+      </section>
 
-    <button class="botoes_mudar btn-next"><i class="bi bi-chevron-compact-right"></i></button>
+      <button class="botoes_mudar"><i class="bi bi-chevron-compact-right btn-prox"></i></button>
+    </div>
   </main>
 
   <script src="/js/script.js"></script>

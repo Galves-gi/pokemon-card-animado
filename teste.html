@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,97 +15,238 @@
       font-family: 'Inter', sans-serif;
     }
 
-    .card-rara {
-      position: relative;
-      width: 300px;
-      height: 420px;
-      background: #111;
-      border-radius: 16px;
-      overflow: hidden;
-      z-index: 0;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+    /* CSS */
+    :root {
+      /* cores e caminhos fáceis de ajustar */
+      --electric-accent: #FFD84A;
+      /* amarelo principal */
+      --electric-deep: #FFB547;
+      /* tom secundário */
+      --electric-dark: #1b1d2b;
+      /* fundo escuro para contraste */
+      --electric-glow: rgba(255, 216, 74, 0.18);
+      --electric-image: url("/images/img-fundo/electric.png");
+      /* imagem de fundo */
+      --card-radius: 14px;
+      --card-padding: 18px;
     }
 
-    /* Gradiente animado da borda */
-    .card-rara::before {
+    /* card base (todas as raras podem usar .card--rare) */
+    .card {
+      width: 300px;
+      border-radius: var(--card-radius);
+      padding: var(--card-padding);
+      box-sizing: border-box;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      transition: transform .22s ease, box-shadow .22s ease;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    /* hover lift */
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+    }
+
+    /* Rara — adiciona borda brilhante */
+    .card--rare {
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background-clip: padding-box;
+    }
+
+    /* --- Variante elétrica (cor de fundo + padrão sutil) --- */
+    /* opção 1: background color + gradient + overlay animado */
+    .card--electric {
+      background-image:
+        linear-gradient(160deg, rgba(255, 216, 74, 0.10) 0%, rgba(255, 181, 71, 0.06) 45%, rgba(27, 29, 43, 0.75) 100%);
+      background-color: var(--electric-dark);
+      outline: 1px solid rgba(255, 216, 74, 0.06);
+    }
+
+    /* opção 2: usar imagem de fundo + gradient por cima (descomente se quiser imagem) */
+    /* .card--electric {
+  background-image:
+    linear-gradient(120deg, rgba(0,0,0,0.44), rgba(0,0,0,0.55)),
+    var(--electric-image);
+  background-size: cover;
+  background-position: center;
+} */
+
+    /* glow externo (pseudo) */
+    .card--electric::after {
       content: "";
       position: absolute;
-      inset: 0;
-      padding: 3px;
-      border-radius: 16px;
-      background: linear-gradient(
-        30deg,
-        #A8A77A,
-        #EE8130,
-        #6390F0,
-        #F7D02C,
-        #7AC74C,
-        #96D9D6,
-        #C22E28,
-        #A33EA1,
-        #E2BF65,
-        #A98FF3,
-        #F95587,
-        #A6B91A, 
-        #B6A136,
-        #735797,
-        #6F35FC,
-        #705746,
-        #B7B7CE,
-        #D685AD);
-      background-size: 400% 400%;
-      animation: bordaBrilhante 8s ease-in-out infinite;
-      -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      z-index: -1;
+      inset: -30%;
+      pointer-events: none;
+      background: radial-gradient(circle at 10% 10%, var(--electric-glow), transparent 12%),
+        radial-gradient(circle at 90% 80%, rgba(255, 186, 71, 0.06), transparent 18%);
+      mix-blend-mode: screen;
+      filter: blur(12px);
+      opacity: 1;
+      transform: translateZ(0);
     }
 
-    @keyframes bordaBrilhante {
-      0% {
-        background-position: 0% 50%;
-        filter: hue-rotate(0deg);
-      }
-      50% {
-        background-position: 100% 50%;
-        filter: hue-rotate(45deg);
-      }
-      100% {
-        background-position: 0% 50%;
-        filter: hue-rotate(0deg);
-      }
+    /* border neon top */
+    .card--electric::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -10%;
+      width: 120%;
+      height: 6px;
+      background: linear-gradient(90deg, transparent, var(--electric-accent), transparent);
+      filter: blur(6px);
+      mix-blend-mode: screen;
+      transform-origin: center;
+      opacity: .95;
     }
 
-    /* Conteúdo da carta */
-    .card-rara h2 {
-      font-weight: bold;
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-      color: #fff8cc;
+    /* small animated spark lines (pseudo-element inside) */
+    .card__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      z-index: 3;
+      position: relative;
     }
 
-    .card-rara p {
-      font-size: 0.9rem;
-      color: #ccc;
+    /* Icon */
+    .card__icon {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      filter: drop-shadow(0 6px 12px rgba(255, 185, 71, 0.25));
+      transform: translateZ(0);
+    }
+
+    /* rarity badge */
+    .card__rarity {
+      font-weight: 700;
+      background: linear-gradient(90deg, rgba(255, 216, 74, 0.12), rgba(255, 181, 71, 0.08));
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 216, 74, 0.12);
+      color: var(--electric-accent);
+      font-size: 12px;
+      letter-spacing: .6px;
+    }
+
+    /* title/subtitle */
+    .card__title {
+      margin: 10px 0 4px;
+      font-size: 20px;
+      font-weight: 700;
+      color: white;
+    }
+
+    .card__subtitle {
       margin: 0;
+      font-size: 13px;
+      opacity: .85;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* footer button */
+    .btn {
+      background: linear-gradient(180deg, rgba(255, 216, 74, 0.18), rgba(255, 181, 71, 0.12));
+      color: white;
+      padding: 8px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 216, 74, 0.14);
+      cursor: pointer;
+      font-weight: 600;
+      backdrop-filter: blur(2px);
+    }
+
+    /* --- animação de faíscas sutis --- */
+    @keyframes spark {
+      0% {
+        transform: translateY(6px) scale(.9);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: .9;
+      }
+
+      100% {
+        transform: translateY(-36px) scale(1.1);
+        opacity: 0;
+      }
+    }
+
+    /* criar 3 faíscas com pseudo elementos posicionados */
+    .card--electric .spark {
+      pointer-events: none;
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+    }
+
+    .card--electric .spark i {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #fff8cc 0%, var(--electric-accent) 60%, rgba(255, 160, 30, 0) 100%);
+      opacity: 0;
+      filter: blur(.6px) drop-shadow(0 4px 8px rgba(255, 185, 71, 0.25));
+    }
+
+    .card--electric .spark i.s1 {
+      left: 18%;
+      top: 62%;
+      animation: spark 1600ms linear infinite;
+      animation-delay: 0ms;
+    }
+
+    .card--electric .spark i.s2 {
+      left: 48%;
+      top: 78%;
+      animation: spark 1900ms linear infinite;
+      animation-delay: 350ms;
+    }
+
+    .card--electric .spark i.s3 {
+      left: 76%;
+      top: 54%;
+      animation: spark 2100ms linear infinite;
+      animation-delay: 700ms;
+    }
+
+    /* acessibilidade: contraste ao foco para teclado */
+    .card:focus-within {
+      outline: 3px solid rgba(255, 216, 74, 0.12);
+      outline-offset: 2px;
     }
   </style>
 </head>
+
 <body>
 
-  <div class="card-rara">
-    <h2>Pikachu ✨</h2>
-    <p>Tipo: Elétrico ⚡</p>
-    <p>Raridade: Lendária</p>
+  <!-- HTML -->
+  <div class="card card--rare card--electric">
+    <div class="card__header">
+      <img class="card__icon" src="/images/icones/electric.png" alt="electric icon">
+      <div class="card__rarity">RARE</div>
+    </div>
+
+    <div class="card__body">
+      <h3 class="card__title">Pikachu</h3>
+      <p class="card__subtitle">Electric • Lv. 50</p>
+    </div>
+
+    <div class="card__footer">
+      <button class="btn">Detalhes</button>
+    </div>
   </div>
 
+
 </body>
+
 </html>
