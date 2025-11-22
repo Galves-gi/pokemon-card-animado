@@ -29,6 +29,18 @@ body {
   justify-content: space-around;
 }
 
+/* remover sombra quando clica */
+button,
+.btn {
+  -webkit-tap-highlight-color: transparent;
+  /* Android, iOS Safari */
+  tap-highlight-color: transparent;
+  /* fallback (não padrão) */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
 /* cabeçalho */
 header {
   display: flex;
@@ -301,29 +313,22 @@ main {
 /* card front - informações do pokemon */
 .card-front {
   border-radius: 10px;
-  background: linear-gradient(30deg,
-      #A8A77A,
-      #EE8130,
-      #6390F0,
-      #F7D02C,
-      #7AC74C,
-      #96D9D6,
-      #C22E28,
-      #A33EA1,
-      #E2BF65,
-      #A98FF3,
-      #F95587,
-      #A6B91A,
-      #B6A136,
-      #735797,
-      #6F35FC,
-      #705746,
-      #B7B7CE,
-      #D685AD);
+  background: linear-gradient(90deg,
+      #000000 0%,
+      #030E49 10%,
+      #54009C 20%,
+      #AC43AC 30%,
+      #049FBB 40%,
+      #FEFEB4 60%,
+      #C2A401 70%,
+      #A47A38 80%,
+      #000000 100%);
+  filter: brightness(1.1);
   background-size: 400% 400%;
   animation: moverGradiente 5s ease-in-out infinite;
 
 }
+
 
 /* Animação */
 @keyframes moverGradiente {

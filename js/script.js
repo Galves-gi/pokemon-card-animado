@@ -133,7 +133,7 @@ const estiloPorTipos = [
 
   { nome_icone: "fire",
     img_icone: "/images/icones/fire.png",
-    cor_fundo: "/images/img-fundo/fire.png" },
+    cor_fundo: "/images/img-fundo/fire.jpg" },
 
   { nome_icone: "water",
     img_icone: "/images/icones/water.png",
@@ -149,7 +149,7 @@ const estiloPorTipos = [
 
   { nome_icone: "ice",
     img_icone: "/images/icones/ice.png",
-    cor_fundo: "/images/img-fundo/ice.png" },
+    cor_fundo: "/images/img-fundo/ice.jpg" },
 
   { nome_icone: "fighting",
     img_icone: "/images/icones/fighting.png",
