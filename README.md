@@ -6,7 +6,7 @@ Projeto frontend que consome a **PokeAPI** (`https://pokeapi.co/`) para exibir i
 
 O objetivo é demonstrar consumo de API, manipulação do DOM e boas práticas front-end, mantendo o projeto simples e didático.
 
-#![PokeAPI](/images/img-readme-1.png)
+![PokeAPI](/images/img-readme-1.png)
 
 ---
 
@@ -49,4 +49,3 @@ O app também verifica se o navegador está online e guarda o último Pokémon v
 
 Contribuições
 - Sugestões e correções são bem-vindas. Abra uma issue descrevendo a proposta ou bug antes de enviar PRs.
-# PokeAPI Frontend — HTML, CSS e JavaScript
