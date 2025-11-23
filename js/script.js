@@ -1,6 +1,5 @@
 const pokemonImagem = document.querySelector('.pokemon__imagem')
 const pokemonNome = document.querySelector('.pokemon__nome')
-/* const pokemonID = document.querySelector('.pokemon__id') */
 
 const formulario = document.querySelector('.form')
 const busca = document.querySelector('.input__pesquisar') 
@@ -9,7 +8,7 @@ const pokemonHp = document.querySelector('.pokemon__hp')
 const carregamento = document.querySelector(".card")
 const containerParalelogramo = document.querySelector(".card-front_infor")
 
-let maxPokemon = 1026
+let maxPokemon = 1025
 let ultimoAcesso
 
 /* menu */
@@ -35,11 +34,7 @@ botaoMenu.addEventListener("click", ()=>{
 const aviso = document.querySelector(".aviso")
 
 function checarConexao() {
-    if (!navigator.onLine) {
-        aviso.style.display = "block";
-    } else {
-        aviso.style.display = "none";
-    }
+  !navigator.onLine ? aviso.style.display = "block" : aviso.style.display = "none"
 }
 
 /* 
@@ -61,7 +56,7 @@ const chamarApi = async (pokemon) => {
 
     if (apiResposta.status === 200) {
         const dadosApi = await apiResposta.json()
-        console.log(dadosApi);
+        //console.log(dadosApi);
         
         return dadosApi
     }
@@ -91,7 +86,7 @@ document.addEventListener('keydown', (event) =>{
 
 
 // exibir pokemon
-const exibirPokemon = async (pokemon=95) =>{
+const exibirPokemon = async (pokemon=94) =>{
 
     carregamento.classList.add("girarCard")
 
@@ -290,7 +285,6 @@ formulario.addEventListener('submit', (event) =>{ // evento aciona com o submit
 function erroPokemon(){
     pokemonImagem.src = "./images/Pokemon_n_encontrado.png"
     pokemonNome.innerHTML = "Não Encontrado!"
-    pokemonID.innerHTML = ''
     busca.value = ""
 }
 
