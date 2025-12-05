@@ -29,7 +29,7 @@ body {
   justify-content: space-around;
 }
 
-/* remover sombra quando clica */
+/* remover sombra quando clica mobile */
 button,
 .btn {
   -webkit-tap-highlight-color: transparent;
