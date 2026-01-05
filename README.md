@@ -40,7 +40,7 @@ O app também verifica se o navegador está online e guarda o último Pokémon v
 
 ---
 
-## 🐱‍👤 Como rodar
+## Como rodar
 
 1. Baixe os arquivos
 2. Abra `index.html` no navegador
